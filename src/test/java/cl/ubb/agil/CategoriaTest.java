@@ -68,5 +68,17 @@ package cl.ubb.agil;
  	 
  	}
  	
+ 	@Test
+ 	public void getCodigoxxx0101(){
+ 		/*arrange*/
+ 		codigo = "xxx0101";
+ 		/*act*/
+ 		String resultado=categoria.getCodigo();
+ 		
+ 		/*assert*/
+ 		assertThat(resultado,is("xxx0101"));
+ 	 
+ 	}
+ 	
  	
  }
