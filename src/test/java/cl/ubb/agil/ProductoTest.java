@@ -4,8 +4,10 @@ package cl.ubb.agil;
 import org.junit.Before;
 import org.junit.Test;
 
+import cl.ubb.agil.Categoria;
 import cl.ubb.agil.Producto;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
@@ -24,6 +26,8 @@ private Producto producto;
 	public void setup() throws Exception {
 		producto= new Producto(nombre, stock_minimo, stock_maximo);
 		producto.setNombre(nombre);
+				
+		
 	}
 	
 	@Test
@@ -63,13 +67,23 @@ private Producto producto;
 	
 	@Test
 	
-	public void stocknotnull (){
+	public void stockfaltanteesnoventa (){
 		/* Arrange */
 		
 		/* Act */	
-	
+		int resultado=producto.getStockFaltante();
 		/* Assert */
+		assertThat(resultado,is(90));
+	}
+	
+	@Test
+	public void esbajostock (){
+		/* Arrange */
 		
+		/* Act */	
+		boolean resultado=producto.isBajoStock();
+		/* Assert */
+		assertFalse(resultado);
 	}
 
 }
